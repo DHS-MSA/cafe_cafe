@@ -1,4 +1,4 @@
-package com.review.cafe;
+package com.system.cafe;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
