@@ -14,7 +14,7 @@ public class InfoRepositoryTest {
     public void InfoRepository_save_test() {
 
         Info info = Info.builder()
-                .user_id("tester3")
+                .userId("tester3")
                 .build();
 
         infoRepository.save(info);
