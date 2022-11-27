@@ -11,12 +11,22 @@ public class InfoRepositoryTest {
     InfoRepository infoRepository;
 
     @Test
-    public void InfoRepositoy_save_test() {
+    public void InfoRepository_save_test() {
 
         Info info = Info.builder()
                 .user_id("tester3")
                 .build();
 
         infoRepository.save(info);
+    }
+
+    @Test
+    public void InfoRepository_findById_Test(){
+        infoRepository.findById(3L);
+    }
+
+    @Test
+    public void InfoRepository_findAll_Test(){
+        infoRepository.findAll();
     }
 }
