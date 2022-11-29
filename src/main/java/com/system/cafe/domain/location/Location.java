@@ -1,12 +1,15 @@
 package com.system.cafe.domain.location;
 
-import lombok.Getter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Getter
-@Table(name = "location")
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class Location {
 
     @Id

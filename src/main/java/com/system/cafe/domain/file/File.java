@@ -1,12 +1,15 @@
 package com.system.cafe.domain.file;
 
-import lombok.Getter;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Getter
-@Table(name = "file")
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@ToString
 public class File {
 
     @Id
@@ -24,7 +27,7 @@ public class File {
     // 타입
     @Enumerated(EnumType.STRING)
     @Column
-    private Type type;
+    private FileType type;
 
     // 확장자
     @Column(nullable = false)

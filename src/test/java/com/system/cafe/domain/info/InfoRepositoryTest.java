@@ -29,4 +29,6 @@ public class InfoRepositoryTest {
     public void InfoRepository_findAll_Test(){
         infoRepository.findAll();
     }
+
+
 }

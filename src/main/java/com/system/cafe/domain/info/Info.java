@@ -2,19 +2,16 @@ package com.system.cafe.domain.info;
 
 import com.system.cafe.domain.BaseTimeEntity;
 import com.system.cafe.domain.location.Location;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Table(name = "Info")
+@ToString
 @Entity
 public class Info extends BaseTimeEntity {
 
@@ -70,7 +67,6 @@ public class Info extends BaseTimeEntity {
     // 위치
     @OneToOne(fetch = FetchType.LAZY)
     private Location location;
-
 
 
 }

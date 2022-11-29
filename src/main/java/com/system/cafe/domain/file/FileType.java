@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum Type {
+public enum FileType {
 
     Profile("프로필 사진"), Info("카페 정보 사진"), Menu("카페 메뉴 사진");
 
