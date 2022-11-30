@@ -18,7 +18,6 @@ public class Info extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     // 유저 아이디
     @Column(length = 50, nullable = false)
     private String userId;
@@ -67,6 +66,5 @@ public class Info extends BaseTimeEntity {
     // 위치
     @OneToOne(fetch = FetchType.LAZY)
     private Location location;
-
 
 }
