@@ -63,8 +63,4 @@ public class Info extends BaseTimeEntity {
     @Column
     private int scrapCount;
 
-    // 위치
-    @OneToOne(fetch = FetchType.LAZY)
-    private Location location;
-
 }

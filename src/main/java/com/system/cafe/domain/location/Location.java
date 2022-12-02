@@ -1,5 +1,6 @@
 package com.system.cafe.domain.location;
 
+import com.system.cafe.domain.info.Info;
 import lombok.*;
 
 import javax.persistence.*;
@@ -27,4 +28,9 @@ public class Location {
     // 경도
     @Column
     private String longitude;
+
+    // 위치
+    @OneToOne(fetch = FetchType.LAZY)
+    private Info info;
+
 }

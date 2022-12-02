@@ -16,12 +16,8 @@ public class Menu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @ManyToOne
-    private Info infoId;
-
     @Column(length = 50)
-    private String menu;
+    private String name;
 
     @Column
     private int price;
@@ -31,6 +27,9 @@ public class Menu {
 
     @Column
     private int ranking;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Info info;
     
 }
 

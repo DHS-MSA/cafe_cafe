@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface InfoRepository extends JpaRepository<Info, Long> {
 
-    @Query("select i,l from Info i left join Location l")
+    @Query("select i,l.address from Info i left join Location l")
     Page<Object[]> getCafeInfoList(Pageable pageable);
 
 }
