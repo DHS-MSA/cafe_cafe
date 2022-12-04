@@ -1,19 +1,16 @@
 package com.system.cafe.service.info;
 
-import com.system.cafe.domain.info.Info;
+import com.system.cafe.domain.info.InfoCustomRepository;
 import com.system.cafe.domain.info.InfoRepository;
-import com.system.cafe.domain.location.Location;
-import com.system.cafe.domain.menu.Menu;
 import com.system.cafe.web.dto.PageRequestDTO;
 import com.system.cafe.web.dto.PageResultDTO;
 import com.system.cafe.web.dto.info.InfoListResponseDto;
+import com.system.cafe.web.dto.info.RecommendInfoListDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.function.Function;
+import java.util.List;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -21,15 +18,22 @@ import java.util.function.Function;
 public class InfoServiceImpl implements InfoService{
 
     private final InfoRepository repository;
+    private final InfoCustomRepository infoCustomRepository;
 
     @Override
     public PageResultDTO<InfoListResponseDto, Object[]> getInfoList(PageRequestDTO pageRequestDTO) {
 
-        Function<Object[] , InfoListResponseDto> fn = (en -> new InfoListResponseDto((Info)en[0], (Location)en[1]));
+//        Function<Object[] , InfoListResponseDto> fn = (en -> new InfoListResponseDto((Info)en[0], (Location)en[1]));
+//
+//        Page<Object[]> result = repository.getCafeInfoList(pageRequestDTO.getPageable(Sort.by("name")));
+//
+//
+//        return new PageResultDTO<>(result, fn);
+        return null;
+    }
 
-        Page<Object[]> result = repository.getCafeInfoList(pageRequestDTO.getPageable(Sort.by("name")));
-
-
-        return new PageResultDTO<>(result, fn);
+    @Override
+    public List<RecommendInfoListDTO> findRecommendList() {
+        return infoCustomRepository.findRecommendList();
     }
 }

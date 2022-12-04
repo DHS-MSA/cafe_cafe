@@ -1,9 +1,9 @@
 package com.system.cafe.web.dto.info;
 
-import com.system.cafe.domain.info.Info;
-import com.system.cafe.domain.location.Location;
-import com.system.cafe.domain.menu.Menu;
+import com.system.cafe.web.dto.menu.MenuDTO;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -13,17 +13,21 @@ import lombok.*;
 @NoArgsConstructor
 public class InfoListResponseDto {
 
+    private Long id;
+
     private String name;
 
     private String address;
 
     private Double rating;
 
+    private List<MenuDTO> menuResponseDTO;
 
-    public InfoListResponseDto(Info info, Location location){
-        this.name = info.getName();
-        this.address = location.getAddress();
-        this.rating = info.getRating();
 
+    public InfoListResponseDto(Long id, String name, String address, Double rating) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.rating = rating;
     }
 }

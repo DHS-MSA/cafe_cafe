@@ -1,10 +1,10 @@
 package com.system.cafe.domain.info;
 
-import com.querydsl.core.Tuple;
+import com.system.cafe.web.dto.info.RecommendInfoListDTO;
 
 import java.util.List;
 
 public interface InfoCustomRepository {
 
-    List<Tuple> recommendCafeInfoList();
+    List<RecommendInfoListDTO> findRecommendList();
 }
