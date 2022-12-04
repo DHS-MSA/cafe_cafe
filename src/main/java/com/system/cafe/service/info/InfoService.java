@@ -13,4 +13,6 @@ public interface InfoService {
 
     List<RecommendInfoListDTO> findRecommendList();
 
+    List<InfoListResponseDto> findInfoList();
+
 }

@@ -29,5 +29,8 @@ public class Location {
     @Column
     private String longitude;
 
+    @OneToOne
+    private Info info;
+
 
 }

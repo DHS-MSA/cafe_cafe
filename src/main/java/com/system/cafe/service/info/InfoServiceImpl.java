@@ -36,4 +36,9 @@ public class InfoServiceImpl implements InfoService{
     public List<RecommendInfoListDTO> findRecommendList() {
         return infoCustomRepository.findRecommendList();
     }
+
+    @Override
+    public List<InfoListResponseDto> findInfoList() {
+        return infoCustomRepository.findInfoList();
+    }
 }

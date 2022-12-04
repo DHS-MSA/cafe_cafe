@@ -47,4 +47,11 @@ public class InfoRepositoryTest {
 
         list.forEach(item -> System.out.println(item));
     }
+
+    @Transactional
+    @Test
+    public void InfoCustomRepository_findInfoList_Test(){
+        List<InfoListResponseDto> list = infoCustomRepository.findInfoList();
+        list.forEach(item -> System.out.println(item));
+    }
 }
