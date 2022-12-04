@@ -6,6 +6,10 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.system.cafe.domain.menu.Menu;
 
 @Getter
 @Builder
@@ -63,4 +67,9 @@ public class Info extends BaseTimeEntity {
     @Column
     private int scrapCount;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    private Location location;
+
+    @OneToMany(mappedBy = "info", orphanRemoval = true)
+    private List<Menu> menu = new ArrayList<>();
 }

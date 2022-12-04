@@ -29,8 +29,5 @@ public class Location {
     @Column
     private String longitude;
 
-    // 위치
-    @OneToOne(fetch = FetchType.LAZY)
-    private Info info;
 
 }
