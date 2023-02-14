@@ -3,11 +3,6 @@ package com.system.cafe.service.cafe;
 import com.system.cafe.domain.cafe.CafeCustomRepository;
 import com.system.cafe.domain.category.Category;
 import com.system.cafe.domain.category.CategoryRepository;
-import com.system.cafe.domain.info.InfoCustomRepository;
-import com.system.cafe.dto.PageRequestDTO;
-import com.system.cafe.dto.PageResultDTO;
-import com.system.cafe.dto.cafe.CafeListResponseDto;
-import com.system.cafe.dto.cafe.RecommendInfoListDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -20,7 +15,6 @@ import java.util.Map;
 @RequiredArgsConstructor
 @Service
 public class CafeServiceImpl implements CafeService {
-    private final InfoCustomRepository infoCustomRepository;
     private final CategoryRepository categoryRepository;
     private final CafeCustomRepository cafeCustomRepository;
 
