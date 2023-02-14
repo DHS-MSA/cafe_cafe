@@ -1,6 +1,6 @@
-package com.system.cafe.web.dto.info;
+package com.system.cafe.dto.info;
 
-import com.system.cafe.web.dto.menu.MenuDTO;
+import com.system.cafe.dto.menu.MenuDTO;
 import lombok.*;
 
 import java.util.ArrayList;

@@ -2,9 +2,9 @@ package com.system.cafe.domain.info;
 
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import com.system.cafe.web.dto.info.InfoListResponseDto;
-import com.system.cafe.web.dto.info.RecommendInfoListDTO;
-import com.system.cafe.web.dto.menu.MenuDTO;
+import com.system.cafe.dto.info.InfoListResponseDto;
+import com.system.cafe.dto.info.RecommendInfoListDTO;
+import com.system.cafe.dto.menu.MenuDTO;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 

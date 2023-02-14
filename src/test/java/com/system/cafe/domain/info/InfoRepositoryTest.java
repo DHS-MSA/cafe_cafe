@@ -1,12 +1,10 @@
 package com.system.cafe.domain.info;
 
-import com.querydsl.core.Tuple;
-import com.system.cafe.web.dto.info.InfoListResponseDto;
-import com.system.cafe.web.dto.info.RecommendInfoListDTO;
+import com.system.cafe.dto.info.InfoListResponseDto;
+import com.system.cafe.dto.info.RecommendInfoListDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.Page;
 
 import javax.transaction.Transactional;
 import java.util.List;

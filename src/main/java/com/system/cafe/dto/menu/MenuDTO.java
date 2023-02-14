@@ -1,4 +1,4 @@
-package com.system.cafe.web.dto.menu;
+package com.system.cafe.dto.menu;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

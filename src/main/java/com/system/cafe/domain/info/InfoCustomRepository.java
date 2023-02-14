@@ -1,7 +1,7 @@
 package com.system.cafe.domain.info;
 
-import com.system.cafe.web.dto.info.InfoListResponseDto;
-import com.system.cafe.web.dto.info.RecommendInfoListDTO;
+import com.system.cafe.dto.info.InfoListResponseDto;
+import com.system.cafe.dto.info.RecommendInfoListDTO;
 
 import java.util.List;
 

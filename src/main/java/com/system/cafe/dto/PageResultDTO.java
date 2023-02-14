@@ -1,4 +1,4 @@
-package com.system.cafe.web.dto;
+package com.system.cafe.dto;
 
 import lombok.Data;
 import org.springframework.data.domain.Page;

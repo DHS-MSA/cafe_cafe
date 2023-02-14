@@ -1,4 +1,4 @@
-package com.system.cafe.web.dto;
+package com.system.cafe.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
