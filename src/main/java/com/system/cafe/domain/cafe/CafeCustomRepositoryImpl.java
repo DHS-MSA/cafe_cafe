@@ -2,7 +2,6 @@ package com.system.cafe.domain.cafe;
 
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import com.system.cafe.domain.menu.Menu;
 import com.system.cafe.dto.cafe.CafeMainListResponseDTO;
 import com.system.cafe.dto.menu.MenuDTO;
 import lombok.extern.log4j.Log4j2;
@@ -30,7 +29,7 @@ public class CafeCustomRepositoryImpl implements CafeCustomRepository {
     public List<CafeMainListResponseDTO> findAllHotCafe() {
         return jpaQueryFactory
                 .from(cafe)
-                .innerJoin(menu)
+                .leftJoin(menu)
                 .on(cafe.id.eq(menu.cafe.id))
                 .transform(
                     groupBy(cafe.id).list(

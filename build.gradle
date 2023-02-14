@@ -8,7 +8,8 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '2.7.6'
     id 'io.spring.dependency-management' version '1.0.15.RELEASE'
-    id 'com.ewerk.gradle.plugins.querydsl' version '1.0.10'
+    id 'com.ewerk.gradle.plugins.querydsl' version '1.0.10' // QueryDsl관련 설정
+    id "org.asciidoctor.convert" version "1.5.9.2" // Rest Docs관련 설정
 }
 
 group = 'com.system.cafe'
@@ -35,15 +36,23 @@ dependencies {
     implementation 'org.mariadb.jdbc:mariadb-java-client'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // === QueryDsl start ===
     implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
     implementation "com.querydsl:querydsl-apt:${queryDslVersion}"
+    // === QueryDsl end ===
+
+    // == Rest Docs start ===
+    asciidoctor 'org.springframework.restdocs:spring-restdocs-asciidoctor'
+    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+    // == Rest Docs end ===
 }
 
 tasks.named('test') {
     useJUnitPlatform()
 }
 
-//querydsl 추가 시작
+// === QueryDsl start ===
 def querydslDir = "$buildDir/generated/querydsl"
 
 querydsl {
@@ -62,4 +71,39 @@ configurations {
     }
     querydsl.extendsFrom compileClasspath
 }
-//querydsl 추가 끝
+// === QueryDsl end ===
+
+
+// === Rest Docs start ===
+ext {
+    snippetsDir = file('build/generated-snippets')
+}
+
+test {
+    outputs.dir snippetsDir
+}
+
+asciidoctor {
+    inputs.dir snippetsDir
+    dependsOn test
+}
+
+bootJar {
+    dependsOn asciidoctor
+    from ("${asciidoctor.outputDir}/html5") {
+        into 'static/docs'
+    }
+}
+
+// build/asciidoc/html5/에 html파일을 src/main/resources/static/doc에 복사
+task copyDocument(type: Copy) {
+    dependsOn asciidoctor
+
+    from file("build/asciidoc/html5/")
+    into file("src/main/resources/static/docs")
+}
+
+build {
+    dependsOn copyDocument
+}
+// === Rest Docs end ===
