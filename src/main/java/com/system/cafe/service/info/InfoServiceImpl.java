@@ -1,10 +1,10 @@
 package com.system.cafe.service.info;
 
-import com.system.cafe.domain.info.InfoCustomRepository;
-import com.system.cafe.domain.info.InfoRepository;
+import com.system.cafe.domain.cafe.CafeCustomRepository;
+import com.system.cafe.domain.cafe.CafeRepository;
 import com.system.cafe.dto.PageRequestDTO;
 import com.system.cafe.dto.PageResultDTO;
-import com.system.cafe.dto.info.InfoListResponseDto;
+import com.system.cafe.dto.info.CafeListResponseDto;
 import com.system.cafe.dto.info.RecommendInfoListDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,8 +18,8 @@ import java.util.Map;
 @Service
 public class InfoServiceImpl implements CafeService {
 
-    private final InfoRepository repository;
-    private final InfoCustomRepository infoCustomRepository;
+    private final CafeRepository repository;
+    private final CafeCustomRepository infoCustomRepository;
 
     @Override
     public Map<String, ?> getMainList(String currentLocation) {
@@ -29,7 +29,7 @@ public class InfoServiceImpl implements CafeService {
     }
 
     @Override
-    public PageResultDTO<InfoListResponseDto, Object[]> getInfoList(PageRequestDTO pageRequestDTO) {
+    public PageResultDTO<CafeListResponseDto, Object[]> getInfoList(PageRequestDTO pageRequestDTO) {
 
 //        Function<Object[] , InfoListResponseDto> fn = (en -> new InfoListResponseDto((Info)en[0], (Location)en[1]));
 //
@@ -46,7 +46,7 @@ public class InfoServiceImpl implements CafeService {
     }
 
     @Override
-    public List<InfoListResponseDto> findInfoList() {
+    public List<CafeListResponseDto> findInfoList() {
         return infoCustomRepository.findInfoList();
     }
 }

@@ -1,8 +1,7 @@
 package com.system.cafe.controller.info;
 
 import com.system.cafe.service.info.CafeService;
-import com.system.cafe.dto.info.InfoListResponseDto;
-import com.system.cafe.dto.info.RecommendInfoListDTO;
+import com.system.cafe.dto.info.CafeListResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -30,7 +29,7 @@ public class CafeController {
     }
 
     @GetMapping(value = "/cafeList" , produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<InfoListResponseDto>> infoList(){
+    public ResponseEntity<List<CafeListResponseDto>> infoList(){
         return new ResponseEntity<>(cafeService.findInfoList(), HttpStatus.OK);
     }
 }

@@ -1,4 +1,4 @@
-package com.system.cafe.domain.info;
+package com.system.cafe.domain.cafe;
 
 import com.system.cafe.domain.BaseTimeEntity;
 import com.system.cafe.domain.location.Location;
@@ -17,7 +17,7 @@ import com.system.cafe.domain.menu.Menu;
 @NoArgsConstructor
 @ToString
 @Entity
-public class Info extends BaseTimeEntity {
+public class Cafe extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -64,8 +64,8 @@ public class Info extends BaseTimeEntity {
     private int likeCount;
 
     // 스크랩 수
-    @Column
-    private int scrapCount;
+    //    @Column
+    //    private int scrapCount;
 
     @OneToOne(fetch = FetchType.LAZY)
     private Location location;

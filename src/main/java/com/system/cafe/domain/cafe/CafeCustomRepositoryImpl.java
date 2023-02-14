@@ -1,8 +1,8 @@
-package com.system.cafe.domain.info;
+package com.system.cafe.domain.cafe;
 
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import com.system.cafe.dto.info.InfoListResponseDto;
+import com.system.cafe.dto.info.CafeListResponseDto;
 import com.system.cafe.dto.info.RecommendInfoListDTO;
 import com.system.cafe.dto.menu.MenuDTO;
 import lombok.extern.log4j.Log4j2;
@@ -12,17 +12,17 @@ import java.util.List;
 
 import static com.querydsl.core.group.GroupBy.groupBy;
 import static com.querydsl.core.group.GroupBy.list;
-import static com.system.cafe.domain.info.QInfo.info;
+import static com.system.cafe.domain.cafe.QInfo.info;
 import static com.system.cafe.domain.menu.QMenu.menu;
 import static com.system.cafe.domain.location.QLocation.location;
 
 @Log4j2
 @Repository
-public class InfoCustomRepositoryImpl implements InfoCustomRepository {
+public class CafeCustomRepositoryImpl implements CafeCustomRepository {
 
     private final JPAQueryFactory jpaQueryFactory;
 
-    public InfoCustomRepositoryImpl(JPAQueryFactory jpaQueryFactory) {
+    public CafeCustomRepositoryImpl(JPAQueryFactory jpaQueryFactory) {
         this.jpaQueryFactory = jpaQueryFactory;
     }
 
@@ -53,7 +53,7 @@ public class InfoCustomRepositoryImpl implements InfoCustomRepository {
     }
 
     @Override
-    public List<InfoListResponseDto> findInfoList() {
+    public List<CafeListResponseDto> findInfoList() {
         return jpaQueryFactory
             .from(info)
             .leftJoin(location)
@@ -63,7 +63,7 @@ public class InfoCustomRepositoryImpl implements InfoCustomRepository {
             .transform(
                 groupBy(info.id).list(
                     Projections.fields(
-                        InfoListResponseDto.class,
+                        CafeListResponseDto.class,
                         info.id,
                         info.name,
                         info.rating,

@@ -12,7 +12,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class InfoListResponseDto {
+public class CafeListResponseDto {
 
     private Long id;
 
@@ -27,7 +27,7 @@ public class InfoListResponseDto {
     private List<MenuDTO> menuDTOList =  new ArrayList<>();
 
 
-    public InfoListResponseDto(Long id, String name, String type, String address, Double rating) {
+    public CafeListResponseDto(Long id, String name, String type, String address, Double rating) {
         this.id = id;
         this.name = name;
         this.type = type;

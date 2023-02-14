@@ -1,4 +1,4 @@
-package com.system.cafe.domain.info;
+package com.system.cafe.domain.cafe;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

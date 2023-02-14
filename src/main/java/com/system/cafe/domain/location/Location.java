@@ -1,6 +1,6 @@
 package com.system.cafe.domain.location;
 
-import com.system.cafe.domain.info.Info;
+import com.system.cafe.domain.cafe.Cafe;
 import lombok.*;
 
 import javax.persistence.*;
@@ -30,7 +30,7 @@ public class Location {
     private String longitude;
 
     @OneToOne
-    private Info info;
+    private Cafe info;
 
 
 }

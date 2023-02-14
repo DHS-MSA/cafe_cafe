@@ -1,6 +1,6 @@
 package com.system.cafe.domain.menu;
 
-import com.system.cafe.domain.info.Info;
+import com.system.cafe.domain.cafe.Cafe;
 import lombok.*;
 
 import javax.persistence.*;
@@ -29,7 +29,7 @@ public class Menu {
     private int ranking;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Info info;
+    private Cafe info;
     
 }
 

@@ -1,6 +1,6 @@
-package com.system.cafe.domain.info;
+package com.system.cafe.domain.cafe;
 
-import com.system.cafe.dto.info.InfoListResponseDto;
+import com.system.cafe.dto.info.CafeListResponseDto;
 import com.system.cafe.dto.info.RecommendInfoListDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,15 +13,15 @@ import java.util.List;
 public class InfoRepositoryTest {
 
     @Autowired
-    InfoRepository infoRepository;
+    CafeRepository infoRepository;
 
     @Autowired
-    InfoCustomRepository infoCustomRepository;
+    CafeCustomRepository infoCustomRepository;
 
     @Test
     public void InfoRepository_save_test() {
 
-        Info info = Info.builder()
+        Cafe info = Cafe.builder()
                 .userId("tester3")
                 .build();
 
@@ -49,7 +49,7 @@ public class InfoRepositoryTest {
     @Transactional
     @Test
     public void InfoCustomRepository_findInfoList_Test(){
-        List<InfoListResponseDto> list = infoCustomRepository.findInfoList();
+        List<CafeListResponseDto> list = infoCustomRepository.findInfoList();
         list.forEach(item -> System.out.println(item));
     }
 }
