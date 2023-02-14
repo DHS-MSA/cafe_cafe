@@ -1,4 +1,4 @@
-package com.system.cafe.dto.info;
+package com.system.cafe.dto.cafe;
 
 import com.system.cafe.dto.menu.MenuDTO;
 import lombok.*;

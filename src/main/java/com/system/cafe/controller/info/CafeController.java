@@ -1,7 +1,6 @@
 package com.system.cafe.controller.info;
 
-import com.system.cafe.service.info.CafeService;
-import com.system.cafe.dto.info.CafeListResponseDto;
+import com.system.cafe.service.cafe.CafeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -22,14 +21,14 @@ public class CafeController {
     private final CafeService cafeService;
 
     @GetMapping(value = "/mainList/currentLocation", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Map<String, ?>> recommendList(@PathVariable String currentLocation) {
-        Map<String, ?> resultMap = cafeService.getMainList(currentLocation);
+    public ResponseEntity<Map<String, Object>> recommendList(@PathVariable String currentLocation) {
+        Map<String, Object> resultMap = cafeService.getMainList(currentLocation);
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping(value = "/cafeList" , produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<CafeListResponseDto>> infoList(){
-        return new ResponseEntity<>(cafeService.findInfoList(), HttpStatus.OK);
-    }
+//    @GetMapping(value = "/cafeList" , produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<List<CafeListResponseDto>> infoList(){
+//        return new ResponseEntity<>(cafeService.findInfoList(), HttpStatus.OK);
+//    }
 }
