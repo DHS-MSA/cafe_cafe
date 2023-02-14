@@ -3,6 +3,7 @@ package com.system.cafe.service.cafe;
 import com.system.cafe.domain.cafe.CafeCustomRepository;
 import com.system.cafe.domain.category.Category;
 import com.system.cafe.domain.category.CategoryRepository;
+import com.system.cafe.dto.cafe.CafeMainListResponseDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -27,12 +28,13 @@ public class CafeServiceImpl implements CafeService {
         List<Category> categoryList = categoryRepository.findAll();
 
         // HOT 매장 추천
-//        List<CafeMainListResponseDTO> cafeList = cafeCustomRepository.
+        List<CafeMainListResponseDTO> cafeList = cafeCustomRepository.findAllHotCafe();
 
 
 
         resultMap.put("categoryList", categoryList);
-        return null;
+        resultMap.put("hotCafeList", cafeList);
+        return resultMap;
     }
 
 }

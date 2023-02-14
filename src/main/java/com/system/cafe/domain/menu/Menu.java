@@ -10,26 +10,24 @@ import javax.persistence.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(exclude = "info")
+@Table(name = "MENU")
 public class Menu {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "MENU_ID")
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "CAFE_ID")
+    private Cafe cafe;
+
     @Column(length = 50)
     private String name;
 
-    @Column
     private int price;
 
-    @Column(length = 1)
-    private String seasonYn;
+    private String signatureMenuYn;
 
-    @Column
-    private int ranking;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Cafe info;
-    
+    private int sortNo;
 }
 

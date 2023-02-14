@@ -1,15 +1,13 @@
 package com.system.cafe.domain.cafe;
 
 import com.system.cafe.domain.BaseTimeEntity;
-import com.system.cafe.domain.location.Location;
+import com.system.cafe.domain.menu.Menu;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.system.cafe.domain.menu.Menu;
 
 @Getter
 @Builder
@@ -17,23 +15,22 @@ import com.system.cafe.domain.menu.Menu;
 @NoArgsConstructor
 @ToString
 @Entity
+@Table(name = "CAFE")
 public class Cafe extends BaseTimeEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "CAFE_ID")
     private Long id;
-    // 유저 아이디
-    @Column(length = 50, nullable = false)
-    private String userId;
 
-    // 타입
+    @Column(length = 50, nullable = false)
+    private String userId; // 유저 아이디
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private CafeType type;
+    private CafeType type; // 타입
 
-    // 카페 이름
     @Column(length = 30, nullable = false)
-    private String name;
+    private String name; // 카페 이름
 
     // 평점
     @Column
@@ -41,35 +38,33 @@ public class Cafe extends BaseTimeEntity {
 
     // 휴일
     @Column
-    private LocalDateTime dayOff;
+    private String dayOff;
 
     // 영업 시간
     @Column(nullable = false)
-    private LocalDateTime businessHour;
+    private LocalTime businessStart;
+
+    @Column(nullable = false)
+    private LocalTime businessEnd;
+
 
     // 전화 번호
     @Column(nullable = false)
     private String phoneNumber;
 
-    // 주차장 여부
-    @Column(length = 1)
-    private String parkingYn;
+    private String direction;
+
+    private String openYn;
 
     // 조회수
-    @Column
-    private int readCount;
+    private Long readCount;
 
     // 좋아요 수
-    @Column
-    private int likeCount;
+    private Long likeCount;
+    private String address;
+    private String latitude;
+    private String longitude;
 
-    // 스크랩 수
-    //    @Column
-    //    private int scrapCount;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    private Location location;
-
-    @OneToMany(mappedBy = "info", orphanRemoval = true)
-    private List<Menu> menu = new ArrayList<>();
+    @OneToMany(mappedBy = "cafe")
+    private List<Menu> menuList = new ArrayList<>();
 }

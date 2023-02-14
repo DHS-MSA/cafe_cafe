@@ -1,8 +1,10 @@
 package com.system.cafe.domain.cafe;
 
-public interface CafeCustomRepository {
+import com.system.cafe.dto.cafe.CafeMainListResponseDTO;
 
-//    List<RecommendInfoListDTO> findRecommendList();
-//
-//    List<CafeListResponseDto> findInfoList();
+import java.util.List;
+
+public interface CafeCustomRepository {
+    List<CafeMainListResponseDTO> findAllHotCafe();
+
 }

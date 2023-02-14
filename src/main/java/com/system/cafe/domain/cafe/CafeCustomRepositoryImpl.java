@@ -1,10 +1,9 @@
-package com.system.cafe.domain.info;
+package com.system.cafe.domain.cafe;
 
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import com.system.cafe.domain.cafe.CafeCustomRepository;
-import com.system.cafe.dto.cafe.CafeListResponseDto;
-import com.system.cafe.dto.cafe.RecommendInfoListDTO;
+import com.system.cafe.domain.menu.Menu;
+import com.system.cafe.dto.cafe.CafeMainListResponseDTO;
 import com.system.cafe.dto.menu.MenuDTO;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
@@ -13,8 +12,9 @@ import java.util.List;
 
 import static com.querydsl.core.group.GroupBy.groupBy;
 import static com.querydsl.core.group.GroupBy.list;
+import static com.system.cafe.domain.cafe.QCafe.cafe;
 import static com.system.cafe.domain.menu.QMenu.menu;
-import static com.system.cafe.domain.location.QLocation.location;
+
 
 @Log4j2
 @Repository
@@ -24,6 +24,30 @@ public class CafeCustomRepositoryImpl implements CafeCustomRepository {
 
     public CafeCustomRepositoryImpl(JPAQueryFactory jpaQueryFactory) {
         this.jpaQueryFactory = jpaQueryFactory;
+    }
+
+    @Override
+    public List<CafeMainListResponseDTO> findAllHotCafe() {
+        return jpaQueryFactory
+                .from(cafe)
+                .innerJoin(menu)
+                .on(cafe.id.eq(menu.cafe.id))
+                .transform(
+                    groupBy(cafe.id).list(
+                        Projections.fields(
+                            CafeMainListResponseDTO.class,
+                            cafe.id,
+                            cafe.name,
+                            cafe.address,
+                            cafe.rating,
+                            list(Projections.fields(
+                                    MenuDTO.class,
+                                    menu.name
+                                )
+                            ).as("menuDTOList")
+                        )
+                    )
+                );
     }
 
     /**
