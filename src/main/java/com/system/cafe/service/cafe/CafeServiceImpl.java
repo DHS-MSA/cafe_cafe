@@ -30,8 +30,6 @@ public class CafeServiceImpl implements CafeService {
         // HOT 매장 추천
         List<CafeMainListResponseDTO> cafeList = cafeCustomRepository.findAllHotCafe();
 
-
-
         resultMap.put("categoryList", categoryList);
         resultMap.put("hotCafeList", cafeList);
         return resultMap;

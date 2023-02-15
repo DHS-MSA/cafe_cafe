@@ -7,9 +7,9 @@ backtony.github.io(부제)
 :toclevels: 2
 :sectlinks:
 
-[[Member-API]]
-== Member API
+[[CAFE_REVIEW-API]]
+== CAFE_REVIEW API
 
-[[Member-단일-조회]]
-=== Member 단일 조회
+[[메인_리스트_조회]]
+=== 메인 리스트 조회
 operation::mainList-get[snippets='http-request,path-parameters,http-response,response-fields']

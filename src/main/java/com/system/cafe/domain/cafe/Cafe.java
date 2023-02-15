@@ -13,7 +13,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@ToString(callSuper = false)
 @Entity
 @Table(name = "CAFE")
 public class Cafe extends BaseTimeEntity {
@@ -66,5 +66,5 @@ public class Cafe extends BaseTimeEntity {
     private String longitude;
 
     @OneToMany(mappedBy = "cafe")
-    private List<Menu> menuList = new ArrayList<>();
+    private final List<Menu> menuList = new ArrayList<>();
 }

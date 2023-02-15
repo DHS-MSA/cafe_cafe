@@ -20,7 +20,7 @@ public class CafeController {
     private final CafeService cafeService;
 
     @GetMapping(value = "/mainList/{currentLocation}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Map<String, Object>> recommendList(@PathVariable String currentLocation) {
+    public ResponseEntity<Map<String, Object>> recommendList(@PathVariable(required = false) String currentLocation) {
         Map<String, Object> resultMap = cafeService.getMainList(currentLocation);
 
         return new ResponseEntity<>(resultMap, HttpStatus.OK);

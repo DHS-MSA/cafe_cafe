@@ -43,7 +43,7 @@ public class CafeCustomRepositoryImpl implements CafeCustomRepository {
                                     MenuDTO.class,
                                     menu.name
                                 )
-                            ).as("menuDTOList")
+                            ).as("menuList")
                         )
                     )
                 );

@@ -21,5 +21,5 @@ public class CafeMainListResponseDTO {
 
     private Double rating;
 
-    private List<MenuDTO> menuDTOList =  new ArrayList<>();
+    private List<MenuDTO> menuList =  new ArrayList<>();
 }
