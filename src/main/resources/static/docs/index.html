@@ -448,9 +448,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#Member-API">Member API</a>
+<li><a href="#CAFE_REVIEW-API">CAFE_REVIEW API</a>
 <ul class="sectlevel2">
-<li><a href="#Member-단일-조회">Member 단일 조회</a></li>
+<li><a href="#메인_리스트_조회">메인 리스트 조회</a></li>
 </ul>
 </li>
 </ul>
@@ -458,12 +458,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="Member-API"><a class="link" href="#Member-API">Member API</a></h2>
+<h2 id="CAFE_REVIEW-API"><a class="link" href="#CAFE_REVIEW-API">CAFE_REVIEW API</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="Member-단일-조회"><a class="link" href="#Member-단일-조회">Member 단일 조회</a></h3>
+<h3 id="메인_리스트_조회"><a class="link" href="#메인_리스트_조회">메인 리스트 조회</a></h3>
 <div class="sect3">
-<h4 id="Member-단일-조회_http_request"><a class="link" href="#Member-단일-조회_http_request">HTTP request</a></h4>
+<h4 id="메인_리스트_조회_http_request"><a class="link" href="#메인_리스트_조회_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /cafe/mainList/1 HTTP/1.1
@@ -473,7 +473,7 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="Member-단일-조회_path_parameters"><a class="link" href="#Member-단일-조회_path_parameters">Path parameters</a></h4>
+<h4 id="메인_리스트_조회_path_parameters"><a class="link" href="#메인_리스트_조회_path_parameters">Path parameters</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. /cafe/mainList/{currentLocation}</caption>
 <colgroup>
@@ -495,7 +495,7 @@ Host: localhost:8080</code></pre>
 </table>
 </div>
 <div class="sect3">
-<h4 id="Member-단일-조회_http_response"><a class="link" href="#Member-단일-조회_http_response">HTTP response</a></h4>
+<h4 id="메인_리스트_조회_http_response"><a class="link" href="#메인_리스트_조회_http_response">HTTP response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
@@ -503,32 +503,176 @@ Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
 Content-Type: application/json
-Content-Length: 180
+Content-Length: 1557
 
-{"categoryList":[{"id":1,"name":"공부"},{"id":2,"name":"분위기"},{"id":3,"name":"디저트"},{"id":4,"name":"뷰"},{"id":5,"name":"노키즈"},{"id":6,"name":"애견동반"}]}</code></pre>
+{
+  "categoryList" : [ {
+    "id" : 1,
+    "name" : "공부"
+  }, {
+    "id" : 2,
+    "name" : "분위기"
+  }, {
+    "id" : 3,
+    "name" : "디저트"
+  }, {
+    "id" : 4,
+    "name" : "뷰"
+  }, {
+    "id" : 5,
+    "name" : "노키즈"
+  }, {
+    "id" : 6,
+    "name" : "애견동반"
+  } ],
+  "hotCafeList" : [ {
+    "id" : 1,
+    "name" : "스타벅스",
+    "address" : "서울시 강남구 100-100번지\n",
+    "rating" : 4.3,
+    "menuList" : [ {
+      "name" : "아이스아메리카노"
+    }, {
+      "name" : "라떼"
+    }, {
+      "name" : "돌체"
+    } ]
+  }, {
+    "id" : 3,
+    "name" : "Caffebene",
+    "address" : "Daegu",
+    "rating" : null,
+    "menuList" : [ {
+      "name" : "아이스아메리카노"
+    }, {
+      "name" : "돌체"
+    }, {
+      "name" : "라떼"
+    } ]
+  }, {
+    "id" : 4,
+    "name" : "Angelinus",
+    "address" : "Busan",
+    "rating" : null,
+    "menuList" : [ {
+      "name" : "돌체"
+    }, {
+      "name" : "라떼"
+    }, {
+      "name" : "아이스아메리카노"
+    } ]
+  }, {
+    "id" : 5,
+    "name" : "Tom&amp;Toms",
+    "address" : "Sungnam",
+    "rating" : null,
+    "menuList" : [ {
+      "name" : "아이스아메리카노"
+    }, {
+      "name" : "라떼"
+    }, {
+      "name" : "돌체"
+    } ]
+  }, {
+    "id" : 2,
+    "name" : "Starbucks",
+    "address" : "Seoul",
+    "rating" : null,
+    "menuList" : [ {
+      "name" : null
+    } ]
+  }, {
+    "id" : 6,
+    "name" : "PaulBassett",
+    "address" : "Jamsil",
+    "rating" : null,
+    "menuList" : [ {
+      "name" : null
+    } ]
+  } ]
+}</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="Member-단일-조회_response_fields"><a class="link" href="#Member-단일-조회_response_fields">Response fields</a></h4>
+<h4 id="메인_리스트_조회_response_fields"><a class="link" href="#메인_리스트_조회_response_fields">Response fields</a></h4>
+<div class="sect4">
+<h5 id="_response_fields_1"><a class="link" href="#_response_fields_1">Response Fields // (1)</a></h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Path</th>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">필드명</th>
+<th class="tableblock halign-left valign-top">타입</th>
+<th class="tableblock halign-left valign-top">필수값</th>
+<th class="tableblock halign-left valign-top">설명</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>categoryList</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">상단 카테고리 리스트</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>categoryList[].id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">카테고리 ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>categoryList[].name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">카테고리 이름</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hotCafeList</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HOT 매장 추천 리스트</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hotCafeList[].id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">카페 ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hotCafeList[].name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">카페 이름</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hotCafeList[].address</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">주소</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hotCafeList[].rating</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">평점</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hotCafeList[].menuList</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">메뉴 리스트</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hotCafeList[].menuList[].name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">메뉴 이름</p></td>
 </tr>
 </tbody>
 </table>
@@ -537,10 +681,11 @@ Content-Length: 180
 </div>
 </div>
 </div>
+</div>
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2023-02-14 23:34:53 +0900
+Last updated 2023-02-16 22:34:47 +0900
 </div>
 </div>
 </body>
