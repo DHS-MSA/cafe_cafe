@@ -59,6 +59,10 @@ dependencies {
     // == Rest Docs end ===
 }
 
+jar {
+    enabled = false
+}
+
 tasks.named('test') {
     useJUnitPlatform()
 }
