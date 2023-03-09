@@ -6,7 +6,8 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum CafeType {
-    Personal("개인 카페"), Franchise("프랜차이즈");
+    PERSONAL("개인 카페"),
+    FRANCHISE("프랜차이즈");
 
     private final String description;
 

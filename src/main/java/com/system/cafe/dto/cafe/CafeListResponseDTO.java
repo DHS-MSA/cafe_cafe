@@ -3,7 +3,6 @@ package com.system.cafe.dto.cafe;
 import com.system.cafe.dto.menu.MenuDTO;
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -12,9 +11,9 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CafeListResponseDto {
+public class CafeListResponseDTO {
 
-    private Long id;
+    private String uuid;
 
     private String name;
 
@@ -24,11 +23,11 @@ public class CafeListResponseDto {
 
     private Double rating;
 
-    private List<MenuDTO> menuDTOList =  new ArrayList<>();
+    private List<MenuDTO> menuDTOList; // =  new ArrayList<>();
 
 
-    public CafeListResponseDto(Long id, String name, String type, String address, Double rating) {
-        this.id = id;
+    public CafeListResponseDTO(String uuid, String name, String type, String address, Double rating) {
+        this.uuid = uuid;
         this.name = name;
         this.type = type;
         this.address = address;
