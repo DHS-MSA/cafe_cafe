@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 import static com.querydsl.core.group.GroupBy.groupBy;
-import static com.querydsl.core.group.GroupBy.list;
+import static com.querydsl.core.types.Projections.list;
 import static com.system.cafe.domain.cafe.QCafe.cafe;
 import static com.system.cafe.domain.menu.QMenu.menu;
 
@@ -25,28 +25,32 @@ public class CafeCustomRepositoryImpl implements CafeCustomRepository {
         this.jpaQueryFactory = jpaQueryFactory;
     }
 
+
+
     @Override
     public List<CafeMainListResponseDTO> findAllHotCafe() {
         return jpaQueryFactory
                 .from(cafe)
                 .leftJoin(menu)
-                .on(cafe.id.eq(menu.cafe.id))
+                .on(cafe.uuid.eq(menu.cafe.uuid))
                 .transform(
-                    groupBy(cafe.id).list(
+                    groupBy(cafe.uuid).list(
                         Projections.fields(
                             CafeMainListResponseDTO.class,
-                            cafe.id,
+                            cafe.uuid,
                             cafe.name,
                             cafe.address,
-                            cafe.rating,
+                            cafe.rating
+                                ,
                             list(Projections.fields(
-                                    MenuDTO.class,
-                                    menu.name
-                                )
+                                MenuDTO.class,
+                                menu.id,
+                                menu.name
                             ).as("menuList")
                         )
                     )
-                );
+                )
+            );
     }
 
     /**

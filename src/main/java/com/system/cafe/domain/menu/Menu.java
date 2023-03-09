@@ -10,18 +10,18 @@ import javax.persistence.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "MENU")
+@Table(name = "menu")
 public class Menu {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "MENU_ID")
+    @Column(name = "menu_id")
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "CAFE_ID")
+    @JoinColumn(name = "cafe_uuid")
     private Cafe cafe;
 
-    @Column(length = 50)
+    private String category;
     private String name;
 
     private int price;

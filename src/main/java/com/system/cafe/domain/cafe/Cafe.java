@@ -15,12 +15,12 @@ import java.util.List;
 @NoArgsConstructor
 @ToString(callSuper = false)
 @Entity
-@Table(name = "CAFE")
+@Table(name = "cafe")
 public class Cafe extends BaseTimeEntity {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "CAFE_ID")
-    private Long id;
+    @Id
+    @Column(name = "cafe_uuid")
+    private String uuid;
 
     @Column(length = 50, nullable = false)
     private String userId; // 유저 아이디
@@ -65,6 +65,6 @@ public class Cafe extends BaseTimeEntity {
     private String latitude;
     private String longitude;
 
-    @OneToMany(mappedBy = "cafe")
-    private final List<Menu> menuList = new ArrayList<>();
+//    @OneToMany(mappedBy = "cafe")
+//    private List<Menu> menuList = new ArrayList<>();
 }

@@ -1,5 +1,6 @@
 package com.system.cafe.dto.cafe;
 
+import com.system.cafe.domain.menu.Menu;
 import com.system.cafe.dto.menu.MenuDTO;
 import lombok.*;
 
@@ -13,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CafeMainListResponseDTO {
-    private Long id;
+    private String uuid;
 
     private String name;
 
