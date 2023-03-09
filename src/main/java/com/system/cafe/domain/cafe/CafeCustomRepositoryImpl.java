@@ -1,5 +1,7 @@
 package com.system.cafe.domain.cafe;
 
+
+
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.system.cafe.dto.cafe.CafeMainListResponseDTO;
@@ -10,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 import static com.querydsl.core.group.GroupBy.groupBy;
-import static com.querydsl.core.types.Projections.list;
+import static com.querydsl.core.group.GroupBy.list;
 import static com.system.cafe.domain.cafe.QCafe.cafe;
 import static com.system.cafe.domain.menu.QMenu.menu;
 
@@ -40,14 +42,14 @@ public class CafeCustomRepositoryImpl implements CafeCustomRepository {
                             cafe.uuid,
                             cafe.name,
                             cafe.address,
-                            cafe.rating
-                                ,
-                            list(Projections.fields(
-                                MenuDTO.class,
-                                menu.id,
-                                menu.name
+                            cafe.rating,
+                            list(
+                                Projections.fields(
+                                    MenuDTO.class,
+                                    menu.id,
+                                    menu.name
+                                )
                             ).as("menuList")
-                        )
                     )
                 )
             );
