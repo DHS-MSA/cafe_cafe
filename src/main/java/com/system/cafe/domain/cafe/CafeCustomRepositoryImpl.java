@@ -48,7 +48,7 @@ public class CafeCustomRepositoryImpl implements CafeCustomRepository {
                                     MenuDTO.class,
                                     menu.id,
                                     menu.name
-                                )
+                                ).skipNulls()
                             ).as("menuList")
                     )
                 )
@@ -58,7 +58,7 @@ public class CafeCustomRepositoryImpl implements CafeCustomRepository {
     /**
      * @see "https://bbuljj.github.io/querydsl/2021/05/17/jpa-querydsl-projection-list.html"
      */
-//    @Override
+//    @Override가
 //    public List<RecommendInfoListDTO> findRecommendList() {
 //        return jpaQueryFactory
 //            .from(info)
