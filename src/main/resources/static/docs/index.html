@@ -503,7 +503,7 @@ Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers
 Content-Type: application/json
-Content-Length: 1557
+Content-Length: 1756
 
 {
   "categoryList" : [ {
@@ -526,69 +526,77 @@ Content-Length: 1557
     "name" : "애견동반"
   } ],
   "hotCafeList" : [ {
-    "id" : 1,
-    "name" : "스타벅스",
-    "address" : "서울시 강남구 100-100번지\n",
-    "rating" : 4.3,
-    "menuList" : [ {
-      "name" : "아이스아메리카노"
-    }, {
-      "name" : "라떼"
-    }, {
-      "name" : "돌체"
-    } ]
-  }, {
-    "id" : 3,
+    "uuid" : "25fc8d36f37",
     "name" : "Caffebene",
     "address" : "Daegu",
     "rating" : null,
     "menuList" : [ {
+      "id" : 1,
       "name" : "아이스아메리카노"
     }, {
-      "name" : "돌체"
-    }, {
-      "name" : "라떼"
-    } ]
-  }, {
-    "id" : 4,
-    "name" : "Angelinus",
-    "address" : "Busan",
-    "rating" : null,
-    "menuList" : [ {
-      "name" : "돌체"
-    }, {
+      "id" : 2,
       "name" : "라떼"
     }, {
-      "name" : "아이스아메리카노"
+      "id" : 3,
+      "name" : "돌체"
     } ]
   }, {
-    "id" : 5,
+    "uuid" : "34d0f7bfe09",
     "name" : "Tom&amp;Toms",
     "address" : "Sungnam",
     "rating" : null,
     "menuList" : [ {
+      "id" : 5,
       "name" : "아이스아메리카노"
     }, {
-      "name" : "라떼"
-    }, {
+      "id" : 6,
       "name" : "돌체"
+    }, {
+      "id" : 7,
+      "name" : "라떼"
     } ]
   }, {
-    "id" : 2,
-    "name" : "Starbucks",
-    "address" : "Seoul",
-    "rating" : null,
-    "menuList" : [ {
-      "name" : null
-    } ]
-  }, {
-    "id" : 6,
+    "uuid" : "68c6e62d6f3",
     "name" : "PaulBassett",
     "address" : "Jamsil",
     "rating" : null,
     "menuList" : [ {
-      "name" : null
+      "id" : 8,
+      "name" : "돌체"
+    }, {
+      "id" : 9,
+      "name" : "라떼"
+    }, {
+      "id" : 10,
+      "name" : "아이스아메리카노"
     } ]
+  }, {
+    "uuid" : "c48e741181b",
+    "name" : "Starbucks",
+    "address" : "Seoul",
+    "rating" : null,
+    "menuList" : [ {
+      "id" : 11,
+      "name" : "아이스아메리카노"
+    }, {
+      "id" : 12,
+      "name" : "라떼"
+    }, {
+      "id" : 13,
+      "name" : "돌체"
+    } ]
+  }, {
+    "uuid" : "f9a9a4202bb",
+    "name" : "Angelinus",
+    "address" : "Busan",
+    "rating" : null,
+    "menuList" : [ ]
+  } ],
+  "hashtagCafeList" : [ {
+    "uuid" : "68c6e62d6f3",
+    "name" : "PaulBassett",
+    "address" : "Jamsil",
+    "rating" : null
   } ]
 }</code></pre>
 </div>
@@ -639,10 +647,10 @@ Content-Length: 1557
 <td class="tableblock halign-left valign-top"><p class="tableblock">HOT 매장 추천 리스트</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hotCafeList[].id</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hotCafeList[].uuid</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">카페 ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">카페 UUID</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>hotCafeList[].name</code></p></td>
@@ -665,14 +673,50 @@ Content-Length: 1557
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>hotCafeList[].menuList</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">메뉴 리스트</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hotCafeList[].menuList[].id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">메뉴 ID</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>hotCafeList[].menuList[].name</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">메뉴 이름</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hashtagCafeList</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">해시태그 순 추천 매장 리스트</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hashtagCafeList[].uuid</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">카페 UUID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hotCafeList[].name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">카페 이름</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hotCafeList[].address</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">주소</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hotCafeList[].rating</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">평점</p></td>
 </tr>
 </tbody>
 </table>

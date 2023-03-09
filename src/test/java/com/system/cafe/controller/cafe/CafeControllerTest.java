@@ -47,14 +47,21 @@ public class CafeControllerTest {
                                         subsectionWithPath("categoryList").type(JsonFieldType.ARRAY).description("상단 카테고리 리스트"),
                                         subsectionWithPath("categoryList[].id").type(JsonFieldType.NUMBER).description("카테고리 ID"),
                                         subsectionWithPath("categoryList[].name").type(JsonFieldType.STRING).description("카테고리 이름"),
+
                                         subsectionWithPath("hotCafeList").type(JsonFieldType.ARRAY).description("HOT 매장 추천 리스트"),
                                         subsectionWithPath("hotCafeList[].uuid").type(JsonFieldType.STRING).description("카페 UUID"),
                                         subsectionWithPath("hotCafeList[].name").type(JsonFieldType.STRING).description("카페 이름"),
                                         subsectionWithPath("hotCafeList[].address").type(JsonFieldType.STRING).description("주소"),
                                         subsectionWithPath("hotCafeList[].rating").type(JsonFieldType.NUMBER).description("평점").optional(),
-                                        subsectionWithPath("hotCafeList[].menuList").type(JsonFieldType.ARRAY).description("메뉴 리스트"),
-                                        subsectionWithPath("hotCafeList[].menuList[].id").type(JsonFieldType.NUMBER).description("메뉴 ID").optional(),
-                                        subsectionWithPath("hotCafeList[].menuList[].name").type(JsonFieldType.STRING).description("메뉴 이름").optional()
+                                        subsectionWithPath("hotCafeList[].menuList").type(JsonFieldType.ARRAY).description("메뉴 리스트").optional(),
+                                        subsectionWithPath("hotCafeList[].menuList[].id").type(JsonFieldType.NUMBER).description("메뉴 ID"),
+                                        subsectionWithPath("hotCafeList[].menuList[].name").type(JsonFieldType.STRING).description("메뉴 이름"),
+
+                                        subsectionWithPath("hashtagCafeList").type(JsonFieldType.ARRAY).description("해시태그 순 추천 매장 리스트"),
+                                        subsectionWithPath("hashtagCafeList[].uuid").type(JsonFieldType.STRING).description("카페 UUID"),
+                                        subsectionWithPath("hotCafeList[].name").type(JsonFieldType.STRING).description("카페 이름"),
+                                        subsectionWithPath("hotCafeList[].address").type(JsonFieldType.STRING).description("주소"),
+                                        subsectionWithPath("hotCafeList[].rating").type(JsonFieldType.NUMBER).description("평점").optional()
                                 )
                         )
                 );

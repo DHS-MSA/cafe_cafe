@@ -7,4 +7,5 @@ import java.util.List;
 public interface CafeCustomRepository {
     List<CafeMainListResponseDTO> findAllHotCafe();
 
+    List<Cafe> findAllCafeByHashtag(String hashtagName);
 }
