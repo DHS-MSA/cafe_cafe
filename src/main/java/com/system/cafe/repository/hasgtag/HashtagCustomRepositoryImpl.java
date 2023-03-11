@@ -1,10 +1,10 @@
-package com.system.cafe.domain.hashtag;
+package com.system.cafe.repository.hasgtag;
 
 import com.querydsl.core.types.dsl.Expressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import com.system.cafe.domain.hashtag.Hashtag;
 import org.springframework.stereotype.Repository;
 
-import static com.system.cafe.domain.category.QCategory.category;
 import static com.system.cafe.domain.hashtag.QHashtag.hashtag;
 
 @Repository

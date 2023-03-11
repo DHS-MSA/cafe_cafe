@@ -1,6 +1,6 @@
 package com.system.cafe.dto.cafe;
 
-import com.system.cafe.dto.menu.MenuDTO;
+import com.system.cafe.dto.menu.MenuDto;
 import lombok.*;
 
 import java.util.List;
@@ -23,7 +23,7 @@ public class CafeListResponseDTO {
 
     private Double rating;
 
-    private List<MenuDTO> menuDTOList; // =  new ArrayList<>();
+    private List<MenuDto> menuDTOList; // =  new ArrayList<>();
 
 
     public CafeListResponseDTO(String uuid, String name, String type, String address, Double rating) {

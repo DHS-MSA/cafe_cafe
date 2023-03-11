@@ -1,6 +1,6 @@
 package com.system.cafe.dto.cafe;
 
-import com.system.cafe.dto.menu.MenuDTO;
+import com.system.cafe.dto.menu.MenuDto;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,5 +12,5 @@ import java.util.List;
 public class RecommendInfoListDTO {
     private String name;
     private double rating;
-    private List<MenuDTO> menuDTOList =  new ArrayList<>();
+    private List<MenuDto> menuDTOList =  new ArrayList<>();
 }

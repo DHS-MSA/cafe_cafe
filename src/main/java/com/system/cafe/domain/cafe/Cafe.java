@@ -1,8 +1,8 @@
 package com.system.cafe.domain.cafe;
 
 import com.system.cafe.domain.BaseTimeEntity;
-import com.system.cafe.dto.cafe.CafeListResponseDTO;
-import com.system.cafe.dto.cafe.HashtagCafeResponseDTO;
+import com.system.cafe.domain.menu.Menu;
+import com.system.cafe.dto.cafe.CafeResponseDTO;
 import lombok.*;
 
 import javax.persistence.*;
@@ -66,10 +66,13 @@ public class Cafe extends BaseTimeEntity {
     private String latitude;
     private String longitude;
 
-    public static List<HashtagCafeResponseDTO> entityToDto(List<Cafe> cafeList) {
-        List<HashtagCafeResponseDTO> resultList = new ArrayList<>();
+    @OneToMany(mappedBy = "cafe")
+    private List<Menu> menu = new ArrayList<>();
+
+    public static List<CafeResponseDTO> entityToDto(List<Cafe> cafeList) {
+        List<CafeResponseDTO> resultList = new ArrayList<>();
         for(Cafe cafe : cafeList) {
-            HashtagCafeResponseDTO dto = HashtagCafeResponseDTO.builder()
+            CafeResponseDTO dto = CafeResponseDTO.builder()
                     .uuid(cafe.uuid)
                     .name(cafe.name)
                     .address(cafe.address)

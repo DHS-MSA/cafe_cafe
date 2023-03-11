@@ -1,4 +1,4 @@
-package com.system.cafe.common;
+package com.system.cafe.util;
 
 import java.util.UUID;
 

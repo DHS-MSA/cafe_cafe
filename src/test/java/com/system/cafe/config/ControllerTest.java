@@ -2,8 +2,8 @@ package com.system.cafe.config;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.system.cafe.controller.cafe.CafeController;
-import com.system.cafe.domain.cafe.CafeRepository;
+import com.system.cafe.controller.CafeController;
+import com.system.cafe.repository.cafe.CafeRepository;
 import org.junit.jupiter.api.Disabled;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

@@ -1,4 +1,4 @@
-package com.system.cafe.controller.cafe;
+package com.system.cafe.controller;
 
 import com.system.cafe.service.cafe.CafeService;
 import lombok.RequiredArgsConstructor;
