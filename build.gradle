@@ -9,6 +9,7 @@ plugins {
     id 'org.springframework.boot' version '2.7.6'
     id 'io.spring.dependency-management' version '1.0.15.RELEASE'
     id 'com.ewerk.gradle.plugins.querydsl' version '1.0.10' // QueryDsl관련 설정
+
     // Asciidoctor 플러그인 적용
     // gradle 7.0 이상부터는 jvm 사용
     id "org.asciidoctor.jvm.convert" version "3.3.2"
@@ -40,6 +41,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6' // sql 실행 결과 ?에 바인딩된 파라미터 이쁘게 보이게 해줌
 
     // === QueryDsl start ===
     implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"

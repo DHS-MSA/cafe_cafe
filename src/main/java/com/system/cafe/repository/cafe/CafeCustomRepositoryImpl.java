@@ -1,19 +1,18 @@
 package com.system.cafe.repository.cafe;
 
 
-
 import com.querydsl.core.types.dsl.Expressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.system.cafe.domain.cafe.Cafe;
-import com.system.cafe.dto.cafe.CafeMainListResponseDto;
+import com.system.cafe.dto.cafe.CafeListResponseDto;
+import com.system.cafe.repository.hasgtag.HashtagCustomRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.querydsl.core.group.GroupBy.groupBy;
-import static com.querydsl.core.group.GroupBy.list;
 import static com.system.cafe.domain.cafe.QCafe.cafe;
 import static com.system.cafe.domain.hashtag.QHashtag.hashtag;
 
@@ -22,19 +21,12 @@ import static com.system.cafe.domain.hashtag.QHashtag.hashtag;
  */
 @Log4j2
 @Repository
+@RequiredArgsConstructor
 public class CafeCustomRepositoryImpl implements CafeCustomRepository {
 
     private final JPAQueryFactory jpaQueryFactory;
+    private final HashtagCustomRepository hashtagCustomRepository;
 
-    public CafeCustomRepositoryImpl(JPAQueryFactory jpaQueryFactory) {
-        this.jpaQueryFactory = jpaQueryFactory;
-    }
-
-
-    /**
-     * HOT 매장 추천
-     * @return
-     */
 //    @Override
 //    public List<CafeMainListResponseDTO> findAllHotCafe() {
 //        return jpaQueryFactory
@@ -62,19 +54,23 @@ public class CafeCustomRepositoryImpl implements CafeCustomRepository {
 //    }
 
 
+    /**
+     * HOT 매장 추천
+     * @return
+     */
     @Override
-    public List<CafeMainListResponseDto> findAllHotCafe() {
+    public List<CafeListResponseDto> findAllHotCafe() {
         List<Cafe> cafeList = jpaQueryFactory
                 .select(cafe)
                 .from(cafe)
                 .limit(12)
                 .fetch();
 
-        List<CafeMainListResponseDto> cafeMainListResponseDTOList = cafeList.stream()
-                .map(entity -> new CafeMainListResponseDto(entity))
+        List<CafeListResponseDto> cafeListResponseDtoList = cafeList.stream()
+                .map(entity -> new CafeListResponseDto(entity))
                 .collect(Collectors.toList());
 
-        return cafeMainListResponseDTOList;
+        return cafeListResponseDtoList;
     }
 
     /**
@@ -82,28 +78,43 @@ public class CafeCustomRepositoryImpl implements CafeCustomRepository {
      * @return
      */
     @Override
-    public List<Cafe> findAllCafeByHashtag(String hashtagName) {
-        return jpaQueryFactory
+    public List<CafeListResponseDto> findAllCafeByHashtag() {
+        // TODO 해시태그 가중치 줘서 어떤 해시태그 가져올지 결정해야함. 일단은 랜덤으로 추출
+        String hashtagName = hashtagCustomRepository.findHashtag().getName();
+
+        List<Cafe> cafeList =  jpaQueryFactory
                 .select(cafe)
                 .from(cafe)
                 .leftJoin(hashtag)
                 .on(cafe.uuid.eq(hashtag.cafe.uuid))
                 .where(hashtag.name.eq(hashtagName))
                 .fetch();
+
+        List<CafeListResponseDto> cafeListResponseDtoList = cafeList.stream()
+                .map(entity -> new CafeListResponseDto(entity))
+                .collect(Collectors.toList());
+
+        return cafeListResponseDtoList;
     }
 
     /**
      * 제일 아래 리스트 랜덤으로 보내주기
+     *
      * @return
      */
     @Override
-    public List<Cafe> findAllCafe() {
-        return jpaQueryFactory
+    public List<CafeListResponseDto> findAllCafe() {
+        List<Cafe> cafeList = jpaQueryFactory
                 .select(cafe)
                 .from(cafe)
                 .orderBy(Expressions.numberTemplate(Double.class, "function('rand')").asc())
                 .limit(12)
                 .fetch();
 
+        List<CafeListResponseDto> cafeListResponseDtoList = cafeList.stream()
+                .map(entity -> new CafeListResponseDto(entity))
+                .collect(Collectors.toList());
+
+        return cafeListResponseDtoList;
     }
 }

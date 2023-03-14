@@ -1,14 +1,13 @@
 package com.system.cafe.repository.cafe;
 
-import com.system.cafe.domain.cafe.Cafe;
-import com.system.cafe.dto.cafe.CafeMainListResponseDto;
+import com.system.cafe.dto.cafe.CafeListResponseDto;
 
 import java.util.List;
 
 public interface CafeCustomRepository {
-    List<CafeMainListResponseDto> findAllHotCafe();
+    List<CafeListResponseDto> findAllHotCafe();
 
-    List<Cafe> findAllCafeByHashtag(String hashtagName);
+    List<CafeListResponseDto> findAllCafeByHashtag();
 
-    List<Cafe> findAllCafe();
+    List<CafeListResponseDto> findAllCafe();
 }
