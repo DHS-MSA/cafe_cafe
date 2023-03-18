@@ -17,11 +17,10 @@ import java.util.List;
 @Entity
 @Table(name = "cafe")
 public class Cafe extends BaseTimeEntity {
-
-    @Id
     @Column(name = "cafe_id")
     private String id;
 
+    @Id
     @Column(name = "cafe_uuid")
     private String uuid;
 

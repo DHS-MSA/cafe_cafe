@@ -1,7 +1,6 @@
 package com.system.cafe.controller;
 
 import com.system.cafe.dto.cafe.CafeListResponseDto;
-import com.system.cafe.dto.common.PageRequestDto;
 import com.system.cafe.dto.common.PageResultDto;
 import com.system.cafe.dto.common.SearchRequestDto;
 import com.system.cafe.service.cafe.CafeService;
@@ -10,9 +9,11 @@ import org.springframework.data.domain.Slice;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.Map;
 
 @RestController
