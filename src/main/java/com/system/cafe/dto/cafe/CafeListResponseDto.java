@@ -19,8 +19,6 @@ public class CafeListResponseDto {
 
     private String name;
 
-    private String type;
-
     private String address;
 
     private Double rating;

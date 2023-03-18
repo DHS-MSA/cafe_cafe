@@ -19,6 +19,9 @@ import java.util.List;
 public class Cafe extends BaseTimeEntity {
 
     @Id
+    @Column(name = "cafe_id")
+    private String id;
+
     @Column(name = "cafe_uuid")
     private String uuid;
 
@@ -65,7 +68,11 @@ public class Cafe extends BaseTimeEntity {
     private String latitude;
     private String longitude;
 
-    @OneToMany(mappedBy = "cafe", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "cafe")
     private List<Menu> menu = new ArrayList<>();
+
+    @OneToMany(mappedBy = "cafe")
+    private List<CafeCategory> cafeCategory = new ArrayList<>();
+
 
 }
