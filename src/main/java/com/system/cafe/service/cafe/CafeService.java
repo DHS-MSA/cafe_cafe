@@ -1,6 +1,7 @@
 package com.system.cafe.service.cafe;
 
 import com.system.cafe.dto.cafe.CafeListResponseDto;
+import com.system.cafe.dto.cafe.CafeSaveRequestDto;
 import com.system.cafe.dto.common.SearchRequestDto;
 import org.springframework.data.domain.Slice;
 
@@ -11,4 +12,6 @@ public interface CafeService {
     Map<String, Object> getMainList(SearchRequestDto requestDto);
 
     Slice<CafeListResponseDto> getCafeList(SearchRequestDto requestDto);
+
+    void saveCafe(CafeSaveRequestDto requestDto);
 }

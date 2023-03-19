@@ -1,5 +1,8 @@
 package com.system.cafe.controller.cafe;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.system.cafe.dto.cafe.CafeSaveRequestDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
@@ -9,14 +12,18 @@ import org.springframework.http.MediaType;
 import org.springframework.restdocs.payload.JsonFieldType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import javax.transaction.Transactional;
+
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessResponse;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
 import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
 import static org.springframework.restdocs.payload.PayloadDocumentation.subsectionWithPath;
 import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
 import static org.springframework.restdocs.request.RequestDocumentation.pathParameters;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
@@ -65,5 +72,21 @@ public class CafeControllerTest {
                                 )
                         )
                 );
+    }
+
+
+    @Test
+    @Transactional
+    void testCafeNameLength() throws Exception {
+        CafeSaveRequestDto requestDto = new CafeSaveRequestDto();
+//        requestDto.setCafeName("일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼");
+        requestDto.setCafeName("");
+        requestDto.setDescription("1208937812093210");
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        mockMvc.perform(post("/cafe/my-info/hyunha")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(requestDto)))
+                .andExpect(status().isBadRequest());
     }
 }

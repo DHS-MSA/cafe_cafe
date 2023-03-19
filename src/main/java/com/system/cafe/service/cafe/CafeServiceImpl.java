@@ -2,6 +2,7 @@ package com.system.cafe.service.cafe;
 
 import com.system.cafe.domain.category.Category;
 import com.system.cafe.dto.cafe.CafeListResponseDto;
+import com.system.cafe.dto.cafe.CafeSaveRequestDto;
 import com.system.cafe.dto.common.SearchRequestDto;
 import com.system.cafe.repository.cafe.CafeCustomRepository;
 import com.system.cafe.repository.cafe.CafeRepository;
@@ -52,5 +53,10 @@ public class CafeServiceImpl implements CafeService {
         Slice<CafeListResponseDto> cafeList = cafeRepository.findAllWithoutOffset(requestDto);
 
         return cafeList;
+    }
+
+    @Override
+    public void saveCafe(CafeSaveRequestDto requestDto) {
+
     }
 }
